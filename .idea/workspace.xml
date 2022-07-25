@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7656772f-a388-4efe-8600-5688ba87fb61" name="Changes" comment="modify configs">
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action" beforeDir="false" afterPath="$PROJECT_DIR$/jdk17-in-action" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action/base/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action/jdk17-in-action" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jdk17-in-action/mvnw.cmd" beforeDir="false" />
-    </list>
+    <list default="true" id="7656772f-a388-4efe-8600-5688ba87fb61" name="Changes" comment="modify configs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,7 +120,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/controller/UserController.java</url>
-          <line>33</line>
+          <line>34</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

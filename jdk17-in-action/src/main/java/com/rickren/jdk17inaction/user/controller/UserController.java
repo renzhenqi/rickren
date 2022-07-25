@@ -3,6 +3,7 @@ package com.rickren.jdk17inaction.user.controller;
 
 import com.rickren.jdk17inaction.user.entity.User;
 import com.rickren.jdk17inaction.user.service.IUserService;
+import com.rickren.jdk17inaction.user.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,5 +32,10 @@ public class UserController {
     public List<User> list() {
         List<User> list = userService.list();
         return list;
+    }
+
+    @PostMapping("/save")
+    public void save(UserVo vo) {
+        userService.saveOrUpdate(vo);
     }
 }
