@@ -1,0 +1,180 @@
+Index: jdk17-in-action/src/main/java/com/rickren/jdk17inaction/Jdk17InActionApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.rickren.jdk17inaction;\n\nimport org.mybatis.spring.annotation.MapperScan;\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PostMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@SpringBootApplication\n@RestController\n@MapperScan(\"com.rickren.jdk17inaction/mapper\")\npublic class Jdk17InActionApplication {\n\n\tpublic static void main(String[] args) {\n\t\tSpringApplication.run(Jdk17InActionApplication.class, args);\n\t}\n\n\t@GetMapping(\"/hello\")\n\tpublic String hello() {\n\t\treturn \"hello!\";\n\t}\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/Jdk17InActionApplication.java b/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/Jdk17InActionApplication.java
+--- a/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/Jdk17InActionApplication.java	(revision b55ccf779d9c704e640a0b8cf6801322d9928096)
++++ b/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/Jdk17InActionApplication.java	(date 1658715950857)
+@@ -9,7 +9,7 @@
+ 
+ @SpringBootApplication
+ @RestController
+-@MapperScan("com.rickren.jdk17inaction/mapper")
++@MapperScan("com.rickren.jdk17inaction/**/mapper")
+ public class Jdk17InActionApplication {
+ 
+ 	public static void main(String[] args) {
+Index: jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/controller/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.rickren.jdk17inaction.user.controller;\n\n\nimport com.rickren.jdk17inaction.user.entity.User;\nimport com.rickren.jdk17inaction.user.service.IUserService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.web.bind.annotation.PostMapping;\nimport org.springframework.web.bind.annotation.RequestMapping;\n\nimport org.springframework.web.bind.annotation.RestController;\n\nimport java.util.List;\n\nimport static net.sf.jsqlparser.util.validation.metadata.NamedObject.user;\n\n/**\n * <p>\n * 前端控制器\n * </p>\n *\n * @author rickren\n * @since 2022-07-22\n */\n@RestController\n@RequestMapping(\"/user\")\npublic class UserController {\n    @Autowired\n    private IUserService userService;\n\n    @PostMapping(\"/list\")\n    public List<User> list() {\n        List<User> list = userService.list();\n        return list;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/controller/UserController.java b/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/controller/UserController.java
+--- a/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/controller/UserController.java	(revision b55ccf779d9c704e640a0b8cf6801322d9928096)
++++ b/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/controller/UserController.java	(date 1658715950864)
+@@ -3,8 +3,11 @@
+ 
+ import com.rickren.jdk17inaction.user.entity.User;
+ import com.rickren.jdk17inaction.user.service.IUserService;
++import com.rickren.jdk17inaction.user.vo.UserVo;
++import io.swagger.annotations.ApiOperation;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.web.bind.annotation.PostMapping;
++import org.springframework.web.bind.annotation.RequestBody;
+ import org.springframework.web.bind.annotation.RequestMapping;
+ 
+ import org.springframework.web.bind.annotation.RestController;
+@@ -23,6 +26,7 @@
+  */
+ @RestController
+ @RequestMapping("/user")
++@ApiOperation(tags = "用户", value = "用户操作")
+ public class UserController {
+     @Autowired
+     private IUserService userService;
+@@ -32,4 +36,11 @@
+         List<User> list = userService.list();
+         return list;
+     }
++
++    @PostMapping("/save")
++    public boolean save(@RequestBody UserVo vo) {
++        System.out.println(vo);
++        boolean b = userService.saveOrUpdate(vo);
++        return b;
++    }
+ }
+Index: jdk17-in-action/src/main/resources/application.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring:\n  datasource:\n    username: root\n    password: rootroot\n    url: jdbc:mysql://127.0.0.1:3306/rickren?characterEncoding=UTF-8&useSSL=false&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false\n    type: com.zaxxer.hikari.HikariDataSource\n    #    driver-class-name: net.sf.log4jdbc.DriverSpy\n    platform: mysql\n    #schema: classpath:schema.sql\n    continue-on-error: true # ??????????????????\n    initialization-mode: never\n    hikari:\n      minimum-idle: 5\n      maximum-pool-size: 15\n      auto-commit: true\n      idle-timeout: 50000\n      pool-name: DatebookHikariCP\n      max-lifetime: 1800000\n      connection-timeout: 50000\n      connection-test-query: SELECT 1\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/jdk17-in-action/src/main/resources/application.yml b/jdk17-in-action/src/main/resources/application.yml
+--- a/jdk17-in-action/src/main/resources/application.yml	(revision b55ccf779d9c704e640a0b8cf6801322d9928096)
++++ b/jdk17-in-action/src/main/resources/application.yml	(date 1658715950870)
+@@ -1,14 +1,15 @@
+ spring:
++  devtools:
++    restart:
++      enabled: true
++      additional-paths: src/main/java
+   datasource:
+     username: root
+     password: rootroot
+     url: jdbc:mysql://127.0.0.1:3306/rickren?characterEncoding=UTF-8&useSSL=false&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false
+     type: com.zaxxer.hikari.HikariDataSource
+     #    driver-class-name: net.sf.log4jdbc.DriverSpy
+-    platform: mysql
+     #schema: classpath:schema.sql
+-    continue-on-error: true # ??????????????????
+-    initialization-mode: never
+     hikari:
+       minimum-idle: 5
+       maximum-pool-size: 15
+@@ -18,4 +19,14 @@
+       max-lifetime: 1800000
+       connection-timeout: 50000
+       connection-test-query: SELECT 1
++  sql:
++    init:
++      platform: mysql
++      mode: never
++      continue-on-error: true
++
++mybatis-plus:
++  global-config:
++    db-config:
++      update-strategy: ignored
+ 
+Index: jdk17-in-action/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n\txsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\n\t<modelVersion>4.0.0</modelVersion>\n\t<parent>\n\t\t<groupId>org.springframework.boot</groupId>\n\t\t<artifactId>spring-boot-starter-parent</artifactId>\n\t\t<version>3.0.0-M3</version>\n\t\t<relativePath/> <!-- lookup parent from repository -->\n\t</parent>\n\t<groupId>com.rickren</groupId>\n\t<artifactId>jdk17-in-action</artifactId>\n\t<version>0.0.1-SNAPSHOT</version>\n\t<name>jdk17-in-action</name>\n\t<description>jdk17-in-action</description>\n\t<properties>\n\t\t<java.version>17</java.version>\n\t</properties>\n\t<dependencies>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-starter-jdbc</artifactId>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-starter-security</artifactId>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-starter-web</artifactId>\n\t\t</dependency>\n\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-devtools</artifactId>\n\t\t\t<scope>runtime</scope>\n\t\t\t<optional>true</optional>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>mysql</groupId>\n\t\t\t<artifactId>mysql-connector-java</artifactId>\n\t\t\t<scope>runtime</scope>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.projectlombok</groupId>\n\t\t\t<artifactId>lombok</artifactId>\n\t\t\t<optional>true</optional>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t<artifactId>spring-boot-starter-test</artifactId>\n\t\t\t<scope>test</scope>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>org.springframework.security</groupId>\n\t\t\t<artifactId>spring-security-test</artifactId>\n\t\t\t<scope>test</scope>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>com.baomidou</groupId>\n\t\t\t<artifactId>mybatis-plus-boot-starter</artifactId>\n\t\t\t<version>3.5.1</version>\n\t\t</dependency>\n\t\t<dependency>\n\t\t\t<groupId>com.baomidou</groupId>\n\t\t\t<artifactId>mybatis-plus-generator</artifactId>\n\t\t\t<version>3.5.1</version>\n\t\t</dependency>\n\t\t<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->\n\t\t<dependency>\n\t\t\t<groupId>org.freemarker</groupId>\n\t\t\t<artifactId>freemarker</artifactId>\n\t\t\t<version>2.3.31</version>\n\t\t</dependency>\n        <!--swagger-->\n        <dependency>\n            <groupId>io.springfox</groupId>\n            <artifactId>springfox-swagger2</artifactId>\n            <version>2.9.2</version>\n        </dependency>\n        <dependency>\n            <groupId>io.springfox</groupId>\n            <artifactId>springfox-swagger-ui</artifactId>\n            <version>2.9.2</version>\n        </dependency>\n\t</dependencies>\n\n\t<build>\n\t\t<plugins>\n\t\t\t<plugin>\n\t\t\t\t<groupId>org.springframework.boot</groupId>\n\t\t\t\t<artifactId>spring-boot-maven-plugin</artifactId>\n\t\t\t\t<configuration>\n\t\t\t\t\t<excludes>\n\t\t\t\t\t\t<exclude>\n\t\t\t\t\t\t\t<groupId>org.projectlombok</groupId>\n\t\t\t\t\t\t\t<artifactId>lombok</artifactId>\n\t\t\t\t\t\t</exclude>\n\t\t\t\t\t</excludes>\n\t\t\t\t</configuration>\n\t\t\t</plugin>\n\t\t</plugins>\n\t</build>\n\t<repositories>\n\t\t<repository>\n\t\t\t<id>spring-milestones</id>\n\t\t\t<name>Spring Milestones</name>\n\t\t\t<url>https://repo.spring.io/milestone</url>\n\t\t\t<snapshots>\n\t\t\t\t<enabled>false</enabled>\n\t\t\t</snapshots>\n\t\t</repository>\n\t</repositories>\n\t<pluginRepositories>\n\t\t<pluginRepository>\n\t\t\t<id>spring-milestones</id>\n\t\t\t<name>Spring Milestones</name>\n\t\t\t<url>https://repo.spring.io/milestone</url>\n\t\t\t<snapshots>\n\t\t\t\t<enabled>false</enabled>\n\t\t\t</snapshots>\n\t\t</pluginRepository>\n\t</pluginRepositories>\n\n</project>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/jdk17-in-action/pom.xml b/jdk17-in-action/pom.xml
+--- a/jdk17-in-action/pom.xml	(revision b55ccf779d9c704e640a0b8cf6801322d9928096)
++++ b/jdk17-in-action/pom.xml	(date 1658715950875)
+@@ -23,10 +23,6 @@
+ 		</dependency>
+ 		<dependency>
+ 			<groupId>org.springframework.boot</groupId>
+-			<artifactId>spring-boot-starter-security</artifactId>
+-		</dependency>
+-		<dependency>
+-			<groupId>org.springframework.boot</groupId>
+ 			<artifactId>spring-boot-starter-web</artifactId>
+ 		</dependency>
+ 
+@@ -52,11 +48,6 @@
+ 			<scope>test</scope>
+ 		</dependency>
+ 		<dependency>
+-			<groupId>org.springframework.security</groupId>
+-			<artifactId>spring-security-test</artifactId>
+-			<scope>test</scope>
+-		</dependency>
+-		<dependency>
+ 			<groupId>com.baomidou</groupId>
+ 			<artifactId>mybatis-plus-boot-starter</artifactId>
+ 			<version>3.5.1</version>
+@@ -83,6 +74,15 @@
+             <artifactId>springfox-swagger-ui</artifactId>
+             <version>2.9.2</version>
+         </dependency>
++<!--		<dependency>-->
++<!--			<groupId>org.springframework.boot</groupId>-->
++<!--			<artifactId>spring-boot-starter-security</artifactId>-->
++<!--		</dependency>-->
++<!--		<dependency>-->
++<!--			<groupId>org.springframework.security</groupId>-->
++<!--			<artifactId>spring-security-test</artifactId>-->
++<!--			<scope>test</scope>-->
++<!--		</dependency>-->
+ 	</dependencies>
+ 
+ 	<build>
+Index: jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/vo/UserVo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/vo/UserVo.java b/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/vo/UserVo.java
+new file mode 100644
+--- /dev/null	(date 1658715950880)
++++ b/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/vo/UserVo.java	(date 1658715950880)
+@@ -0,0 +1,16 @@
++package com.rickren.jdk17inaction.user.vo;
++
++import com.rickren.jdk17inaction.user.entity.User;
++import lombok.Data;
++
++/**
++ * TODO
++ *
++ * @author rickren
++ * @date 2022/7/22 16:10
++ * @since
++ */
++@Data
++public class UserVo extends User {
++
++}

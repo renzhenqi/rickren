@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    username: root
+    password: rootroot
+    url: jdbc:mysql://127.0.0.1:3306/rickren?characterEncoding=UTF-8&useSSL=false&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false
+    type: com.zaxxer.hikari.HikariDataSource
+    #    driver-class-name: net.sf.log4jdbc.DriverSpy
+    #schema: classpath:schema.sql
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 50000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 50000
+      connection-test-query: SELECT 1
+  sql:
+    init:
+      platform: mysql
+      continue-on-error: true
+      mode: never
+
