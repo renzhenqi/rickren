@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@MapperScan("com.rickren.jdk17inaction/mapper")
+@MapperScan("com.rickren.jdk17inaction/**/mapper*")
 public class Jdk17InActionApplication {
 
 	public static void main(String[] args) {
