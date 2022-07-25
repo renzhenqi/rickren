@@ -1,4 +1,4 @@
-package com.rickren.jdk17inaction;
+package com.rickren.mpinaction;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,8 +1,8 @@
-package com.rickren.jdk17inaction.user.service.impl;
+package com.rickren.mpinaction.user.service.impl;
 
-import com.rickren.jdk17inaction.user.entity.User;
-import com.rickren.jdk17inaction.user.mapper.UserMapper;
-import com.rickren.jdk17inaction.user.service.IUserService;
+import com.rickren.mpinaction.user.entity.User;
+import com.rickren.mpinaction.user.mapper.UserMapper;
+import com.rickren.mpinaction.user.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

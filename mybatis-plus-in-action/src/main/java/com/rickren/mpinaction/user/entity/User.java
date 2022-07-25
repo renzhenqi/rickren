@@ -1,4 +1,4 @@
-package com.rickren.jdk17inaction.user.entity;
+package com.rickren.mpinaction.user.entity;
 
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;

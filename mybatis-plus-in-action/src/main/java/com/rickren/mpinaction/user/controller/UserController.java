@@ -1,9 +1,9 @@
-package com.rickren.jdk17inaction.user.controller;
+package com.rickren.mpinaction.user.controller;
 
 
-import com.rickren.jdk17inaction.user.entity.User;
-import com.rickren.jdk17inaction.user.service.IUserService;
-import com.rickren.jdk17inaction.user.vo.UserVo;
+import com.rickren.mpinaction.user.entity.User;
+import com.rickren.mpinaction.user.service.IUserService;
+import com.rickren.mpinaction.user.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-import static net.sf.jsqlparser.util.validation.metadata.NamedObject.user;
 
 /**
  * <p>

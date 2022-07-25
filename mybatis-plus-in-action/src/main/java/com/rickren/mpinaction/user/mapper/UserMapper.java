@@ -1,6 +1,6 @@
-package com.rickren.jdk17inaction.user.mapper;
+package com.rickren.mpinaction.user.mapper;
 
-import com.rickren.jdk17inaction.user.entity.User;
+import com.rickren.mpinaction.user.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

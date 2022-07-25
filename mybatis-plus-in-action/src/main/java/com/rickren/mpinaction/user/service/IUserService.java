@@ -1,6 +1,6 @@
-package com.rickren.jdk17inaction.user.service;
+package com.rickren.mpinaction.user.service;
 
-import com.rickren.jdk17inaction.user.entity.User;
+import com.rickren.mpinaction.user.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

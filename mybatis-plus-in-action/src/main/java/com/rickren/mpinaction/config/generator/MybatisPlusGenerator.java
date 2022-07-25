@@ -1,4 +1,4 @@
-package com.rickren.jdk17inaction.config.generator;
+package com.rickren.mpinaction.config.generator;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
