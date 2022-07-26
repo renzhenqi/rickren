@@ -6,4 +6,7 @@ import lombok.Data;
 @Data
 public class UserVo extends User {
 
+    private int pageNum;
+
+    private int pageSize;
 }

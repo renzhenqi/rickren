@@ -1,11 +1,13 @@
 package com.rickren.mpinaction.user.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.rickren.mpinaction.user.entity.User;
 import com.rickren.mpinaction.user.service.IUserService;
 import com.rickren.mpinaction.user.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +35,16 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public void save(UserVo vo) {
-        userService.saveOrUpdate(vo);
+    public boolean save(@RequestBody UserVo vo) {
+        boolean b = userService.saveOrUpdate(vo);
+        return b;
     }
+
+    @PostMapping("/page")
+    public IPage<User> getPage(@RequestBody UserVo vo) {
+        IPage<User> page = userService.getPage(vo);
+        return  page;
+    }
+
+
 }

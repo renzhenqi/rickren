@@ -1,7 +1,9 @@
 package com.rickren.mpinaction.user.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.rickren.mpinaction.user.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.rickren.mpinaction.user.vo.UserVo;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User> {
 
+    IPage<User> getPage(UserVo vo);
 }
