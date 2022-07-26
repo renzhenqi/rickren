@@ -17,6 +17,6 @@ public class MybatisPlusInActionApplication {
 
 	@GetMapping("/hello")
 	public String hello() {
-		return "hello!";
+		return "echo12345!";
 	}
 }
