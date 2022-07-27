@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7656772f-a388-4efe-8600-5688ba87fb61" name="Changes" comment="modify configs" />
+    <list default="true" id="7656772f-a388-4efe-8600-5688ba87fb61" name="Changes" comment="modify 去除devtools热更新依赖 使用idea自带的HotSwap">
+      <change beforePath="$PROJECT_DIR$/mybatis-plus-in-action/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-plus-in-action/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-plus-in-action/src/main/java/com/rickren/mpinaction/MybatisPlusInActionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-plus-in-action/src/main/java/com/rickren/mpinaction/MybatisPlusInActionApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-plus-in-action/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-plus-in-action/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-plus-in-action/src/test/java/com/rickren/mpinaction/Jdk17InActionApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-plus-in-action/src/test/java/com/rickren/mpinaction/Jdk17InActionApplicationTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,9 +32,12 @@
     <option name="NEW_BASE" value="main" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/jdk17-in-action" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
     <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/local/repository/com/baomidou/mybatis-plus-extension/3.4.0/mybatis-plus-extension-3.4.0-sources.jar!/com/baomidou/mybatisplus/extension/plugins/pagination/Page.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,16 +60,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;6e31bbd36bd442dec1a1a62030757f6d&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "spring.configuration.checksum": "6e31bbd36bd442dec1a1a62030757f6d"
   }
-}</component>
+}]]></component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -69,31 +80,49 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.com.rickren.jdk17inaction.config.generator.MybatisPlusGenerator">
+  <component name="RunManager" selected="Spring Boot.MybatisPlusInActionApplication">
     <configuration name="MybatisPlusGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.rickren.jdk17inaction.generator.MybatisPlusGenerator" />
-      <module name="jdk17-in-action" />
+      <module name="mybatis-plus-in-action" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.rickren.jdk17inaction.config.generator.MybatisPlusGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rickren.jdk17inaction.config.generator.MybatisPlusGenerator" />
-      <module name="jdk17-in-action" />
+    <configuration name="com.rickren.mpinaction.config.mybatisplus.MybatisPlusGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rickren.mpinaction.config.mybatisplus.MybatisPlusGenerator" />
+      <module name="mybatis-plus-in-action" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Jdk17InActionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="jdk17-in-action" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.rickren.jdk17inaction.Jdk17InActionApplication" />
+    <configuration name="Jdk17InActionApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis-plus-in-action" />
+      <option name="PACKAGE_NAME" value="com.rickren.mpinaction" />
+      <option name="MAIN_CLASS_NAME" value="com.rickren.mpinaction.Jdk17InActionApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MybatisPlusInActionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="mybatis-plus-in-action" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.rickren.mpinaction.MybatisPlusInActionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.com.rickren.mpinaction.config.mybatisplus.MybatisPlusGenerator" />
+      <item itemvalue="Application.MybatisPlusGenerator" />
+      <item itemvalue="JUnit.Jdk17InActionApplicationTests.contextLoads" />
+      <item itemvalue="Spring Boot.MybatisPlusInActionApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.rickren.jdk17inaction.config.generator.MybatisPlusGenerator" />
+        <item itemvalue="Spring Boot.MybatisPlusInActionApplication" />
+        <item itemvalue="JUnit.Jdk17InActionApplicationTests.contextLoads" />
+        <item itemvalue="Application.com.rickren.mpinaction.config.mybatisplus.MybatisPlusGenerator" />
         <item itemvalue="Application.MybatisPlusGenerator" />
       </list>
     </recent_temporary>
@@ -111,17 +140,30 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/jdk17-in-action" />
+      <path value="$PROJECT_DIR$/rickren" />
+    </ignored-roots>
     <MESSAGE value="first commit" />
     <MESSAGE value="modify configs" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify configs" />
+    <MESSAGE value="modify mybatis plus mapper scan url" />
+    <MESSAGE value="modify project name" />
+    <MESSAGE value="modify 验证mp 全局配置 更新策略不同的影响" />
+    <MESSAGE value="modify 去除devtools热更新依赖 使用idea自带的HotSwap" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify 去除devtools热更新依赖 使用idea自带的HotSwap" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/jdk17-in-action/src/main/java/com/rickren/jdk17inaction/user/controller/UserController.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/mybatis-plus-in-action/src/main/java/com/rickren/mpinaction/user/controller/UserController.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mybatis-plus-in-action/src/main/java/com/rickren/mpinaction/user/service/impl/UserServiceImpl.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

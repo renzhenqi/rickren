@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    username: root
+    password: rootroot
+    url: jdbc:mysql://127.0.0.1:3306/rickren?characterEncoding=UTF-8&useSSL=false&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false
+    type: com.zaxxer.hikari.HikariDataSource
+    #    driver-class-name: net.sf.log4jdbc.DriverSpy
+    #schema: classpath:schema.sql
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 50000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 50000
+      connection-test-query: SELECT 1
+  sql:
+    init:
+      platform: mysql
+      continue-on-error: true
+      mode: never
+mybatis-plus:
+  global-config:
+    refresh: true # 是否自动刷新 Mapper 对应的 XML 文件, 测试开发 打开，上线 关闭
+    db-config:
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+      update-strategy: NOT_NULL #默认即为NOT_NULL 公司项目配置为ignored 验证没问题后建议取消ignored配置 会导致除了待更新字段 其他字段不传值会被更新为null
+  executor-type: simple
+  configuration:
+    map-underscore-to-camel-case: true
